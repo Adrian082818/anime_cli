@@ -1,16 +1,17 @@
-class API
-
+class AnimeAPI
+   
     ORIGINAL_URL = "https://jikan.moe/?ref=public-apis"
   
-def get_anime_characters
+def anime_list
 
-  character_info = RestClient.get("https://api.jikan.moe/v3/character/id/request")
-
-  character_array = JSON.parse(character_info.body)["results"]
-
-  character_info.each do |character|
-  Character.new(character)
+  anime_info = RestClient.get("https://api.jikan.moe/v3/search/anime")
+# ?q=anime&limit=16
+  anime_array = JSON.parse(anime_info.body)["results"]
+  
+  animes.each do |anime|
+  Anime.new(anime)
   end 
 end 
 
 end 
+ 

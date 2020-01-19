@@ -4,7 +4,7 @@ require 'pry'
 
 
 require_relative "./anime_cli/version"
-require_relative './anime_cli/pokemon'
+require_relative './anime_cli/anime'
 require_relative './anime_cli/api'
 require_relative './anime_cli/cli'
 
