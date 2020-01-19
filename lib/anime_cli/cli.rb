@@ -35,9 +35,10 @@ class CLI
       # menu
      elsif user_input.downcase == "exit"
      goodbye 
-     elsif user_input.to_i > 1 
-     invalid_input
+    # elsif Anime.all == user_input.to_i > 1
+    # puts invalid_input
   else
+    invalid_input
      menu 
     end 
   end 
@@ -65,10 +66,15 @@ end
 
 def anime_attributes(anime)
   puts "Title: #{anime.title}"
+  sleep 0.5
   puts "Type: #{anime.type}"
+  sleep 0.5
   puts "Episodes: #{anime.episodes}"
+  sleep 0.5
   puts "Rated: #{anime.rated}"
+  sleep 0.5
   puts "Score: #{anime.score}"
+  
 end 
 
 def continue?
@@ -81,16 +87,16 @@ def continue?
     elsif user_input == "2"
     list_anime
     sub_menu_option
-    elsif user_input == "leave"
+    elsif user_input == "exit"
    goodbye
   elsif invalid_input
 # else 
 #     goodbye
- end 
+end 
 end 
   
   def goodbye
-    puts "Thank you for using the Anime CLI!"
+    puts "Thank you for using."
     exit 
   end 
   
