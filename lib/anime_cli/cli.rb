@@ -39,7 +39,8 @@ class CLI
     # puts invalid_input
   else
     invalid_input
-     menu 
+    # menu 
+    sub_menu
     end 
   end 
     
