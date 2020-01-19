@@ -5,7 +5,7 @@ class CLI
     puts "Welcome to the Anime CLI!"
     puts "Now accessing Anime List..."
     
-    API.new.anime_list
+    AnimeAPI.new.anime_list
     
     puts "Anime list loading complete..."
    menu 
@@ -59,16 +59,15 @@ end
 
 def list_anime
   Anime.all.each.with_index(1) do |anime, i|
-    puts "#{i}. #{anime.name}"
+    puts "#{i}. #{anime.title}"
 end 
 
 def anime_attributes(anime)
-  puts "Name: #{anime.name}"
+  puts "Title: #{anime.title}"
   puts "Type: #{anime.type}"
   puts "Episodes: #{anime.episodes}"
   puts "Rated: #{anime.rated}"
   puts "Score: #{anime.score}"
-  puts "Title: #{anime.title}"
 end 
 
 def continue?

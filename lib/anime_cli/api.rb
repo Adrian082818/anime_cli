@@ -4,14 +4,14 @@ class AnimeAPI
   
 def anime_list
 
-  anime_info = RestClient.get("https://api.jikan.moe/v3/search/anime")
-# ?q=anime&limit=16
+  anime_info = RestClient.get("https://api.jikan.moe/v3/search/anime?q=anime&limit=16")
+
   anime_array = JSON.parse(anime_info.body)["results"]
   
-  animes.each do |anime|
+  anime_array.each do |anime|
   Anime.new(anime)
   end 
 end 
-
+# binding.pry
 end 
  
