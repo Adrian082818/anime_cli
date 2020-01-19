@@ -1,8 +1,8 @@
 # AnimeCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/anime_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to the Anime CLI App! In this CLI application, you will be able to view a list of anime series, movies or mini-series that are accessed from the Jikan website (https://jikan.moe/). If you find an anime that interest you, you can see more details about it like it's title and rating!
 
-TODO: Delete this and the text above, and describe your gem
+
 
 ## Installation
 
@@ -22,7 +22,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To run the application, run 
+./bin/anime_run
 
 ## Development
 
