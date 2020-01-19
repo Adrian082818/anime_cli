@@ -29,18 +29,19 @@ class CLI
   
   def menu_option 
     user_input = gets.strip 
-    
     if user_input == "1"
      list_anime
      sub_menu_option
       # menu
-    elsif user_input.downcase == "exit"
-    goodbye 
+     elsif user_input.downcase == "exit"
+     goodbye 
+     elsif user_input.to_i > 1 
+     invalid_input
   else
-    invalid_input 
-    menu 
+     menu 
+    end 
   end 
-end 
+    
 
 def sub_menu_option
   user_input = gets.strip 
@@ -49,12 +50,12 @@ def sub_menu_option
     anime = Anime.all[user_input.to_i - 1]
     anime_attributes(anime)
     continue?
-  elsif user_input.downcase == "exit"
-  goodbye
-else
-  invalid_input
-  sub_menu
-end 
+    elsif user_input.downcase == "exit"
+    goodbye
+    else
+    invalid_input
+    sub_menu
+  end 
 end 
 
 def list_anime
@@ -82,9 +83,9 @@ def continue?
     sub_menu_option
     elsif user_input == "leave"
    goodbye
-  else 
-  invalid_input
-    goodbye
+  elsif invalid_input
+# else 
+#     goodbye
  end 
 end 
   
@@ -95,7 +96,7 @@ end
   
   def invalid_input
     puts "I'm not familiar with this Anime Series, try another number."
-  end 
+end 
   
 end 
 end 
