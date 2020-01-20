@@ -2,18 +2,17 @@ class CLI
   def start
     system('clear')
     
-    puts "Welcome to the Anime CLI!"
-    puts "Now accessing Anime List..."
+    puts "Looking for something to watch?"
+    puts "Now entering the world of Anime..."
     
     AnimeAPI.new.anime_list
     
-    puts "Anime list loading complete..."
    menu 
   end 
   
   def menu
+    puts ""
     user_input = nil 
-    
     while user_input != "exit"
     puts "Enter '1' to get a list of Anime series"
     puts "Enter 'exit' to exit application"
@@ -51,6 +50,7 @@ def sub_menu_option
   if user_input.to_i.between?(1, Anime.all.length)
     anime = Anime.all[user_input.to_i - 1]
     anime_attributes(anime)
+    puts "--------------------------------------------------------------------------------"
     continue?
     elsif user_input.downcase == "exit"
     goodbye
@@ -97,7 +97,7 @@ end
 end 
   
   def goodbye
-    puts "Thank you for using."
+    puts "See ya later Space Cowboy..."
     exit 
   end 
   
