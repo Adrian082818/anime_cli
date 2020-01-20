@@ -17,7 +17,7 @@ class AnimeCli::CLI
     puts "Enter '1' to get a list of Anime series"
     puts "Enter 'exit' to exit application"
     menu_option 
-  end 
+end 
   end
   
   def sub_menu
@@ -40,6 +40,7 @@ class AnimeCli::CLI
     invalid_input
     # menu 
     sub_menu
+    # list_anime
     end 
   end 
     
@@ -56,7 +57,8 @@ def sub_menu_option
     goodbye
     else
     invalid_input
-    sub_menu
+    # sub_menu
+    # list_anime
   end 
 end 
 
