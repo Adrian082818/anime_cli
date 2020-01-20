@@ -1,11 +1,11 @@
-class CLI 
+class AnimeCli::CLI 
   def start
     system('clear')
     
     puts "Looking for something to watch?"
     puts "Now entering the world of Anime..."
     
-    AnimeAPI.new.anime_list
+    AnimeCli::AnimeAPI.new.anime_list
     
    menu 
   end 
@@ -47,11 +47,11 @@ class CLI
 def sub_menu_option
   user_input = gets.strip 
   
-  if user_input.to_i.between?(1, Anime.all.length)
-    anime = Anime.all[user_input.to_i - 1]
+  if user_input.to_i.between?(1, AnimeCli::Anime.all.length)
+    anime = AnimeCli::Anime.all[user_input.to_i - 1]
     anime_attributes(anime)
     puts "--------------------------------------------------------------------------------"
-    continue?
+    continue
     elsif user_input.downcase == "exit"
     goodbye
     else
@@ -61,7 +61,7 @@ def sub_menu_option
 end 
 
 def list_anime
-  Anime.all.each.with_index(1) do |anime, i|
+  AnimeCli::Anime.all.each.with_index(1) do |anime, i|
     puts "#{i}. #{anime.title}"
 end 
 
@@ -78,8 +78,10 @@ def anime_attributes(anime)
   
 end 
 
-def continue?
-  puts "Enter '1' for menu, enter '2' to select another Anime series or enter 'exit' to exit program."
+def continue
+  puts "Enter '1' for menu." 
+  puts "enter '2' to select another Anime series." 
+  puts "enter 'exit' to exit program."
   
   user_input = gets.strip 
   if user_input == "1"
@@ -90,7 +92,8 @@ def continue?
     sub_menu_option
     elsif user_input == "exit"
    goodbye
-  elsif invalid_input
+  else
+    invalid_input
 # else 
 #     goodbye
 end 

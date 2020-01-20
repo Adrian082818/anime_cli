@@ -1,4 +1,4 @@
-class Anime
+class AnimeCli::Anime
   
   attr_accessor :type, :episodes, :score, :rated, :title, :name 
   
