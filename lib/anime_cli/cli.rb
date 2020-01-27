@@ -6,18 +6,17 @@ class AnimeCli::CLI
     puts "Now entering the world of Anime..."
     
     AnimeCli::AnimeAPI.new.anime_list
-    
-   menu 
+    menu 
   end 
   
   def menu
     puts ""
     user_input = nil 
     while user_input != "exit"
-    puts "Enter '1' to get a list of Anime series"
-    puts "Enter 'exit' to exit application"
-    menu_option 
-end 
+      puts "Enter '1' to get a list of Anime series"
+      puts "Enter 'exit' to exit application"
+      menu_option 
+    end 
   end
   
   def sub_menu
@@ -32,42 +31,37 @@ end
      list_anime
      sub_menu_option
       # menu
-     elsif user_input.downcase == "exit"
+    elsif user_input.downcase == "exit"
      goodbye 
-    # elsif Anime.all == user_input.to_i > 1
-    # puts invalid_input
-  else
-    invalid_input
-    # menu 
-    sub_menu
-    # list_anime
+    else
+        invalid_input 
+      menu
     end 
   end 
     
 
-def sub_menu_option
-  user_input = gets.strip 
+  def sub_menu_option
+    user_input = gets.strip 
   
-  if user_input.to_i.between?(1, AnimeCli::Anime.all.length)
-    anime = AnimeCli::Anime.all[user_input.to_i - 1]
-    anime_attributes(anime)
-    puts "--------------------------------------------------------------------------------"
-    continue
+    if user_input.to_i.between?(1, AnimeCli::Anime.all.length)
+      anime = AnimeCli::Anime.all[user_input.to_i - 1]
+      anime_attributes(anime)
+      puts "--------------------------------------------------------------------------------"
+      continue
     elsif user_input.downcase == "exit"
-    goodbye
+      goodbye
     else
-    invalid_input
-    # sub_menu
-    # list_anime
+      invalid_input
+    end 
   end 
-end 
 
-def list_anime
-  AnimeCli::Anime.all.each.with_index(1) do |anime, i|
-    puts "#{i}. #{anime.title}"
-end 
+  def list_anime
+    AnimeCli::Anime.all.each.with_index(1) do |anime, i|
+      puts "#{i}. #{anime.title}"
+    end 
+  end 
 
-def anime_attributes(anime)
+  def anime_attributes(anime)
   puts "Title: #{anime.title}"
   sleep 0.5
   puts "Type: #{anime.type}"
@@ -78,9 +72,9 @@ def anime_attributes(anime)
   sleep 0.5
   puts "Score: #{anime.score}"
   
-end 
+  end 
 
-def continue
+  def continue
   puts "Enter '1' for menu." 
   puts "enter '2' to select another Anime series." 
   puts "enter 'exit' to exit program."
@@ -94,12 +88,12 @@ def continue
     sub_menu_option
     elsif user_input == "exit"
    goodbye
-  else
+    else
     invalid_input
-# else 
-#     goodbye
-end 
-end 
+    # else 
+    # goodbye
+    end 
+  end 
   
   def goodbye
     puts "See ya later Space Cowboy..."
@@ -108,7 +102,6 @@ end
   
   def invalid_input
     puts "I'm not familiar with this Anime Series, try another number."
-end 
-  
-end 
+  end 
+   
 end 
