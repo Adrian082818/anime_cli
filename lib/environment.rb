@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'json'
 require 'pry'
+require 'tty-prompt'
 
 
 require_relative "./anime_cli/version"

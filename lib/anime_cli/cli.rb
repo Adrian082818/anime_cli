@@ -1,10 +1,10 @@
 class AnimeCli::CLI
   def start
     system('clear')
-
-    puts "Looking for something to watch?"
-    puts "Now entering the world of Anime..."
-    
+    prompt = TTY::Prompt.new
+    # puts "Looking for something to watch?"
+    prompt.ask("Looking for something to watch?", default: ENV["USER"])
+    puts "Now entering the world of Anime..."    
     AnimeCli::AnimeAPI.new.anime_list
     menu 
   end 
@@ -102,6 +102,8 @@ class AnimeCli::CLI
   
   def invalid_input
     puts "I'm not familiar with this Anime Series, try another number."
+
+    list_anime
   end 
    
 end 
