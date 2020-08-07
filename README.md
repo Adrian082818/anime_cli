@@ -22,8 +22,8 @@ Or install it yourself as:
 
 ## Usage
 
-To run the application, run 
-./bin/anime_run
+To run the application, cd into bin directory and run 
+ruby anime_run
 
 ## Development
 
