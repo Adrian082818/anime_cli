@@ -1,7 +1,7 @@
-class AnimeCli::CLI 
+class AnimeCli::CLI
   def start
     system('clear')
-    
+
     puts "Looking for something to watch?"
     puts "Now entering the world of Anime..."
     
@@ -96,7 +96,7 @@ class AnimeCli::CLI
   end 
   
   def goodbye
-    puts "See ya later Space Cowboy..."
+   "See ya later Space Cowboy..."
     exit 
   end 
   
